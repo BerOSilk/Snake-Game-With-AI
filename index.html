@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="score-container">
+        <h2>Score Panel</h2>
+
+        <div class="score-section">
+            <p><strong>Current Score:</strong> <span id="currentScore">0</span></p>
+            <p><strong>Best Score:</strong> <span id="bestScore">0</span></p>
+            <P><strong>Time:</strong> <span id="currentTime">0</span></P>
+        </div>
+
+        <div class="leaderboard-section">
+            <h3>Leaderboard</h3>
+            <ol id="leaderboard">
+            <li>Player1 - 100</li>
+            <li>Player2 - 85</li>
+            <li>Player3 - 70</li>
+            </ol>
+        </div>
+
+        <div class="settings-section">
+            <h3>Settings</h3>
+
+            <div class="setting">
+            <label for="speedSelect"><strong>Speed:</strong></label>
+            <select id="speedSelect">
+                <option value="0.25">0.25x</option>
+                <option value="0.5">0.5x</option>
+                <option value="1.75">1.5x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+                <option value="1.75">1.75x</option>
+                <option value="2">2x</option>
+            </select>
+            </div>
+
+            <div class="setting">
+            <label for="meshToggle"><strong>Mesh:</strong></label>
+            <input type="checkbox" id="meshToggle" checked />
+            </div>
+        </div>
+    </div>
+    <div id="game-container">
+        <h1 id="start-label">Click an arrow button to start</h1>
+        <div id="snake" class="snake"></div>
+        <div id="food"></div>
+    </div>
+    <div id="game-buttons-container">
+        <button id="up-btn" onclick="setDirection('UP')" disabled>↑</button>
+        <div class="horizontal-buttons">
+            <button id="left-btn" onclick="setDirection('LEFT')" disabled>←</button>
+            <button id="right-btn" onclick="setDirection('RIGHT')" disabled>→</button>
+        </div>
+        <button id="down-btn" onclick="setDirection('DOWN')" disabled>↓</button>
+        <button id="begin-ai" onclick="setDirection('RIGHT')">Begin AI</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

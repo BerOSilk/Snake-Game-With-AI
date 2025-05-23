@@ -1,0 +1,129 @@
+body{
+    background: #f0f0f0;
+    margin: 0;
+   display: flex;
+  justify-content: center;
+  align-items: center;      
+  height: 100vh;           
+  gap: 40px;     
+}
+
+#game-container{
+    background-color: black;
+    width: 500px;
+    height: 100vh;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background-image: 
+        linear-gradient(to right, gray 1px, transparent 1px),
+        linear-gradient(to bottom, gray 1px, transparent 1px);
+    background-size: 25px 25px;
+    position: relative;
+}
+
+#game-container h1{
+    z-index: 1;
+    color: white
+}
+
+.snake{
+    background-color: green;
+    width: 24px;
+    height: 24px;
+    top: 50px;
+    left: 25px;
+    position: absolute;
+}
+
+#snake{
+    background-image: url('assets/snake.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#food {
+  width: 25px;
+  height: 25px;
+  background-image: url('assets/food.png');
+  top: 250px;
+  left: 250px;
+  border-radius: 50%;       
+  position: absolute;       
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.2); 
+}
+
+
+/* #food::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 8px;
+  width: 4px;
+  height: 6px;
+  background-color: brown;
+  border-radius: 2px;
+} */
+
+
+#game-buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.horizontal-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+#game-buttons-container button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+#game-buttons-container button:hover {
+    background-color: #e0e0e0;
+}
+
+#game-buttons-container button:active {
+    background-color: #d0d0d0;
+    transform: scale(0.95);
+}
+
+.score-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.score-section p,
+.settings-section label {
+  margin: 5px 0;
+}
+
+.leaderboard-section {
+  margin-top: 15px;
+}
+
+.settings-section {
+  margin-top: 15px;
+}
+
+.setting {
+  margin-bottom: 10px;
+}
