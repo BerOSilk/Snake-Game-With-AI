@@ -58,12 +58,12 @@ cd Snake-Game-With-AI
 Contributions are welcome! Feel free to:
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feature-branch`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+4. Push to the branch (`git push origin feature-branch`)
 5. Open a Pull Request
 
-**Note:** All pull requests will be reviewed before merging. This helps maintain code quality and ensures that changes align with the project's goals. Please be patient while waiting for your PR to be reviewed.
+> **Note:** All pull requests will be reviewed before merging. This helps maintain code quality and ensures that changes align with the project's goals. Please be patient while waiting for your PR to be reviewed.
 
 ## 📝 License
 
