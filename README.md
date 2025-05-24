@@ -2,6 +2,8 @@
 
 A modern implementation of the classic Snake game with an AI opponent that uses pathfinding algorithms to play the game intelligently.
 
+> **Note:** This project is actively being developed. More features and improvements are coming soon! Stay tuned for updates.
+
 ## 🎮 Live Demo
 
 Try the game now: [Play Snake Game With AI](https://berosilk.github.io/Snake-Game-With-AI/)
