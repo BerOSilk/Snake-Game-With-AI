@@ -1,7 +1,7 @@
 body{
-    background: #f0f0f0;
-    margin: 0;
-   display: flex;
+  background: #f0f0f0;
+  margin: 0;
+  display: flex;
   justify-content: center;
   align-items: center;      
   height: 100vh;           
@@ -9,18 +9,14 @@ body{
 }
 
 #game-container{
-    background-color: black;
-    width: 500px;
-    height: 100vh;
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    background-image: 
-        linear-gradient(to right, gray 1px, transparent 1px),
-        linear-gradient(to bottom, gray 1px, transparent 1px);
-    background-size: 25px 25px;
-    position: relative;
+  background-color: black;
+  width: 500px;
+  height: 100vh;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 #game-container h1{

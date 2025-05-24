@@ -5,6 +5,7 @@ var score = 0
 var directionQueue = []
 var gameSpeed = 100
 var time = 0
+var ai = false
 
 const scoreDisplay = document.getElementById('currentScore')
 
@@ -16,22 +17,37 @@ const gameHeight = parseInt(gameStyle.height)
 
 snakeBody = []
 
-// document.addEventListener('keydown', function(event){
-//     switch (event.key){
-//         case 'ArrowUp':
-//             setDirection('UP')
-//             break
-//         case 'ArrowDown':
-//             setDirection('DOWN')
-//             break
-//         case 'ArrowLeft':
-//             setDirection('LEFT')
-//             break
-//         case 'ArrowRight':
-//             setDirection('RIGHT')
-//             break
-//     }
-// })
+const mesh = document.getElementById('meshToggle')
+mesh.addEventListener('change', function(){
+    console.log(mesh.checked)
+    if(mesh.checked == true){
+        gameContainer.style.backgroundImage = 'linear-gradient(to right, gray 1px, transparent 1px),linear-gradient(to bottom, gray 1px, transparent 1px)'
+        gameContainer.style.backgroundSize = '25px 25px'
+    }else{
+        gameContainer.style.backgroundImage = ''
+        gameContainer.style.backgroundSize = ''
+    }
+    console.log(gameContainer.style.backgroundImage)
+})
+
+
+
+document.addEventListener('keydown', function(event){
+    switch (event.key){
+        case 'ArrowUp':
+            setDirection(this.documentElement,'UP')
+            break
+        case 'ArrowDown':
+            setDirection(this.documentElement,'DOWN')
+            break
+        case 'ArrowLeft':
+            setDirection(this.documentElement,'LEFT')
+            break
+        case 'ArrowRight':
+            setDirection(this.documentElement,'RIGHT')
+            break
+    }
+})
 
 function eatFood(newLeft, newTop){
     const food = document.getElementById('food')
@@ -211,16 +227,17 @@ function Move(){
         var snakeLeft = parseInt(snakeStyle.left)
         var snakeTop = parseInt(snakeStyle.top)
 
-        if(directionQueue.length === 0){
+        if(directionQueue.length === 0 && ai == true){
             directionQueue = findShortestPath({'LEFT': snakeLeft, 'TOP': snakeTop}, BodyPositions())
         }
 
-        var newDirection = directionQueue.shift()
-        
-        direction = getUpdatedDirection(direction, newDirection)
-        rotate(direction)
+        if(directionQueue.length !== 0){
+            var newDirection = directionQueue.shift()
+            
+            direction = getUpdatedDirection(direction, newDirection)
+            rotate(direction)
+        }
     
-
 
     
         var newLeft = snakeLeft
@@ -260,9 +277,6 @@ function Move(){
         }
         
         if(isCollesionGlobal({'LEFT': newLeft, 'TOP': newTop})){
-            gameContainer.parentNode.replaceChild(gameContainerClone, gameContainer)
-            gameContainer = document.getElementById('game-container')
-            gameContainerClone = gameContainer.cloneNode(true)
             isMoving = false
             snakeBody = []
             score = 0
@@ -306,14 +320,23 @@ function rotate(direct){
 }
 
 async function runInterval() {
-    if(!isMoving) return
-  await Move();
+  if(!isMoving) return
+  Move();
   setTimeout(runInterval, gameSpeed); 
 }
 
-function setDirection(newDirection){
+function setDirection(button, newDirection){
     
     directionQueue.push(newDirection)
+
+    if(button.id == 'begin-ai'){
+        ai = true
+        var buttons = document.querySelectorAll('div#game-buttons-container button.arrow')
+        
+        buttons.forEach(button => {
+            button.disabled = true
+        })
+    }
 
     if(!isMoving){
         isMoving = true
