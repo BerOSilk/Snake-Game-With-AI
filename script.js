@@ -71,7 +71,7 @@ function eatFood(newLeft, newTop){
 
             if (
                 (newFoodLeft !== parseInt(foodStyle.left) || newFoodTop !== parseInt(foodStyle.top)) && 
-                !isCollesionGlobal({ LEFT: newFoodLeft, TOP: newFoodTop }) 
+                !isCollesionGlobal({ 'LEFT': newFoodLeft, 'TOP': newFoodTop }) 
             ) {
                 validPositionFound = true;
                 foodLeft = newFoodLeft;
@@ -202,8 +202,6 @@ function findShortestPath(snakePosition, snakeBodyList){
             }
         })
     }
-    console.clear()
-    console.log(moves)
     return moves.split(',').filter(m => m !== '');
 }
 
